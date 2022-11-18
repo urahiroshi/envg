@@ -1,0 +1,22 @@
+{
+  "name": "envg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ENV_NAME=example1 jest --coverage",
+    "functional-test": "./functional-test.sh"
+  },
+  "author": "asj.hiroshi@gmail.com",
+  "bin": {
+    "envg": "./envg"
+  },
+  "files": [
+    "envg",
+    "lib/"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
+}

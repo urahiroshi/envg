@@ -1,0 +1,11 @@
+#!/bin/sh -eu
+
+if (test $# -lt 2 ); then
+  echo "Usage: '$0 <env> <command...>'"
+  echo "(Example: '$0 development npm run build')"
+  exit 1
+fi
+
+_ENV=`ENV_NAME=$1 node -e "require('envg').print()"`
+_ARGV=`echo ${@}`
+env $_ENV ${_ARGV#* }

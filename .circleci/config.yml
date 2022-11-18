@@ -1,0 +1,31 @@
+version: 2.1
+
+executors:
+  node-12:
+    docker:
+      - image: node:12-alpine
+  node-10:
+    docker:
+      - image: node:10-alpine
+  publish:
+    docker:
+      - image: circleci/node:12
+
+jobs:
+  node-12: &test
+    executor: node-12
+    steps:
+      - checkout
+      - run: npm cit
+      - run: npm run functional-test
+
+  node-10:
+    <<: *test
+    executor: node-10
+  
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - node-12
+      - node-10
