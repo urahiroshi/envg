@@ -95,3 +95,4 @@ $ npx envg secret npm start
 # it will work well
 $ SECRET_VALUE=XXX npx envg secret npm start
 ```
+# envg
