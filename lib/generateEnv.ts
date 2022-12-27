@@ -1,8 +1,9 @@
-const path = require('path');
-const validateKeyValues = require('./validateKeyValues');
-const overwriteWithValidation = require('./overwriteWithValidation');
+import * as path from 'path';
 
-module.exports = (envName) => {
+import validateKeyValues from './validateKeyValues';
+import overwriteWithValidation, { EnvVars } from './overwriteWithValidation';
+
+export default function (envName): EnvVars {
   if (!envName) {
     throw new Error('ENV_NAME is not defined');
   }
@@ -10,4 +11,4 @@ module.exports = (envName) => {
   const env = overwriteWithValidation({ defaults, overwrittenBy: process.env });
   env.ENV_NAME = envName;
   return env;
-};
+}

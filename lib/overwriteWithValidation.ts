@@ -2,7 +2,9 @@
 // It is different from merging, result doesn't include keys which `overwrittenBy` only has.
 // If there is `undefined` value in `defaults` and not overwritten, it throws error.
 
-module.exports = ({ defaults, overwrittenBy }) => {
+export interface EnvVars { [key: string]: string };
+
+export default function ({ defaults, overwrittenBy }): EnvVars {
   const allEnv = {
     ...defaults,
     ...overwrittenBy,
