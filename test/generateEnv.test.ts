@@ -1,4 +1,5 @@
-const generateEnv = require('../lib/generateEnv');
+import generateEnv from '../lib/generateEnv';
+
 const originalEnvName = process.env.ENV_NAME;
 
 describe('returns valid env', () => {
@@ -13,5 +14,6 @@ describe('returns valid env', () => {
 });
 
 test('throw Error if ENV_NAME is not defined', () => {
+  // @ts-ignore
   expect(() => generateEnv()).toThrow('ENV_NAME is not defined');
 });

@@ -1,4 +1,4 @@
-const validateKeyValues = require('../lib/validateKeyValues');
+import validateKeyValues from '../lib/validateKeyValues';
 
 const validEnv = {
   KEY1: 'key1',
@@ -56,6 +56,7 @@ const getCharsByKey = ({ validKey }) => {
     asciiMap.filter(o => o.validKey === validKey).map(o => o.char)
   );
   // it can be replaced by deepChars.flat() if only node >= 12 supported
+  // @ts-ignore
   return [].concat(...deepChars);
 }
 
@@ -64,6 +65,7 @@ const getCharsByVal = ({ validVal }) => {
     asciiMap.filter(o => o.validVal === validVal).map(o => o.char)
   );
   // it can be replaced by deepChars.flat() if only node >= 12 supported
+  // @ts-ignore
   return [].concat(...deepChars);
 }
 

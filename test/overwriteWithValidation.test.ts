@@ -1,4 +1,4 @@
-const method = require('../lib/overwriteWithValidation');
+import method from '../lib/overwriteWithValidation';
 
 test('overwrite `defaults` value if there is same key in `overwrittenBy`', () => {
   const defaults = { HOGE: 'hogehoge', FUGA: 'fugafuga' };

@@ -1,4 +1,4 @@
-module.exports = env => {
+export default function (env: object) {
   // just allow letters, digits, underscore for environment variable name
   // based on https://pubs.opengroup.org/onlinepubs/000095399/basedefs/xbd_chap08.html
   // but not strictly checking
@@ -18,4 +18,4 @@ module.exports = env => {
   if (invalidValKey) {
     throw new Error(`invalid character is included in value for ${invalidValKey}`);
   }
-};
+}
