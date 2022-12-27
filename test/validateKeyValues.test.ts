@@ -126,3 +126,13 @@ describe("validateKeyValue() throw error when invalid value", () => {
     });
   });
 });
+
+describe("validateKeyValue() throw error when value is not string type", () => {
+  [['number', 1], ['boolean', true], ['object', { a: 'aaa' }]].forEach(([typeName, value]) => {
+    test(`throw error when getting ${typeName} type value`, () => {
+      expect(validateMethod({ ...validEnv, ...{ invalidKey: value }})).toThrow(
+        `the type of the env["invalidKey"] is ${typeName}, but env value should be string`
+      );
+    });
+  });
+});

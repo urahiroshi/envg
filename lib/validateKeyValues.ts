@@ -14,7 +14,12 @@ export default function (env: object) {
     throw new Error(`invalid character is included in key name: ${invalidKey}`);
   }
 
-  const invalidValKey = Object.keys(env).find(key => !env[key].match(validEnvValRegExp));
+  const invalidValKey = Object.keys(env).find(key => {
+    if (typeof env[key] !== 'string') {
+      throw new Error(`the type of the env["${key}"] is ${typeof env[key]}, but env value should be string`);
+    }
+    return !env[key].match(validEnvValRegExp);
+  });
   if (invalidValKey) {
     throw new Error(`invalid character is included in value for ${invalidValKey}`);
   }
